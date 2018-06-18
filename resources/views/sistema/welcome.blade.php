@@ -75,7 +75,7 @@
                 </div>
             <div class="content">
                 <div class="title m-b-md">
-                    SISTEMA INTERNO DE INVESTIGACION
+                    SISTEMA:
                 </div>
 
             </div>
