@@ -1,0 +1,893 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"evide",
+				"evidencias"
+			],
+			[
+				"FEC",
+				"fecha_inicio"
+			],
+			[
+				"Session",
+				"Session"
+			],
+			[
+				"agregar",
+				"aggregate_methods_by_regexp"
+			],
+			[
+				"tipo_",
+				"tipo_HUMANO"
+			],
+			[
+				"Fecha",
+				"Fecha_inicio"
+			],
+			[
+				"Titul",
+				"titulo_proyecto"
+			],
+			[
+				"convoc",
+				"Convocatoria"
+			],
+			[
+				"tbl",
+				"tbl1"
+			],
+			[
+				"Compra",
+				"Compra"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "public/js/gastos.js",
+			"settings":
+			{
+				"buffer_size": 2243,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Investigador/GastosController.php",
+			"settings":
+			{
+				"buffer_size": 2241,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Models/Gastos.php",
+			"settings":
+			{
+				"buffer_size": 271,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/gastos/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 4684,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/HomeController.php",
+			"settings":
+			{
+				"buffer_size": 1831,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/vinculacion.js",
+			"settings":
+			{
+				"buffer_size": 2381,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Investigador/VinculacionController.php",
+			"settings":
+			{
+				"buffer_size": 2945,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Models/Vinculacion.php",
+			"settings":
+			{
+				"buffer_size": 225,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/vinculacion/show.blade.php",
+			"settings":
+			{
+				"buffer_size": 1818,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Investigador/EntregablesController.php",
+			"settings":
+			{
+				"buffer_size": 2157,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/filesystems.php",
+			"settings":
+			{
+				"buffer_size": 2258,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"INSTAL",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"ftp",
+				"SFTP: Browse Server…"
+			],
+			[
+				"sftp",
+				"SFTP: Browse Server…"
+			],
+			[
+				"INSTALL PACKAGE",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Desarrollo/home/public/crud/routes/web.php",
+		"/Desarrollo/home/public/crud/resources/views/sistema/Investigador.blade.php",
+		"/Desarrollo/home/public/crud/resources/views/layouts/app.blade.php",
+		"/Desarrollo/home/public/crud/resources/views/cronograma/index.blade.php",
+		"/Desarrollo/home/public/crud/public/js/cronograma.js",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/CronogramaController.php",
+		"/Desarrollo/home/public/crud/app/Models/Cronograma.php",
+		"/Desarrollo/home/public/crud/basededatos/2018_06_13_crud.sql",
+		"/Desarrollo/home/public/crud/app/Models/Proyecto.php",
+		"/Desarrollo/home/public/crud/config/session.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/VinculacionController.php",
+		"/Desarrollo/home/public/crud/basededatos/todo.php",
+		"/Desarrollo/home/public/crud/resources/views/vinculacion/show.blade.php",
+		"/Desarrollo/home/public/crud/public/js/app.js",
+		"/Desarrollo/home/public/crud/resources/assets/js/app.js",
+		"/Desarrollo/home/public/crud/app/Models/Vinculacion.php",
+		"/Desarrollo/home/public/crud/app/Models/Entregables.php",
+		"/Desarrollo/home/public/crud/resources/views/entregables/index.blade.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/EntregablesController.php",
+		"/Desarrollo/home/public/crud/resources/views/integracion/listado.blade.php",
+		"/Desarrollo/home/public/crud/public/js/colaboradores.js",
+		"/Desarrollo/home/public/crud/public/js/entregables.js",
+		"/Desarrollo/home/public/crud/resources/views/protocolo/show.blade.php",
+		"/Desarrollo/home/public/crud/resources/views/colaboradores/index.blade.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/ColaboradoresController.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/ProtocoloController.php",
+		"/Desarrollo/home/public/crud/routes/2018_05_31_17_52_rutas.txt",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Coordinador/ConvocatoriaController.php",
+		"/Desarrollo/home/public/crud/public/js/aceptacion.js",
+		"/Desarrollo/home/public/crud/app/Models/Protocolo.php",
+		"/Desarrollo/home/public/crud/app/Models/Programa_educativo.php",
+		"/Desarrollo/home/public/crud/resources/views/proyecto/createespecial.blade.php",
+		"/Desarrollo/home/public/crud/app/Models/Colaboradores.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/ProyectoController.php",
+		"/Desarrollo/home/public/crud/app/Http/Middleware/VerifyCsrfToken.php",
+		"/Desarrollo/home/public/crud/basededatos/colaboradores.sql",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Coordinador/IntegracionController.php",
+		"/Desarrollo/home/public/crud/resources/views/proyecto/create.blade.php",
+		"/Desarrollo/home/public/crud/resources/views/convocatoria/index.blade.php",
+		"/Desarrollo/home/public/crud/app/Models/Convocatoria.php",
+		"/Desarrollo/home/public/crud/resources/views/convocatoria/create.blade.php",
+		"/Desarrollo/home/public/crud/resources/views/convocatoria/edit.blade.php",
+		"/Desarrollo/home/public/crud/routes/api.php",
+		"/Desarrollo/home/public/crud/resources/views/proyecto/edit.blade.php",
+		"/Desarrollo/home/public/crud/resources/views/proyecto/index.blade.php",
+		"/Desarrollo/home/public/crud/app/Models/Datos.php",
+		"/Desarrollo/home/public/crud/public/index.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/HomeController.php",
+		"/Desarrollo/home/public/crud/basededatos/solodatos.sql",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/DatosController.php",
+		"/Desarrollo/home/public/crud/resources/views/sistema/Coordinador.blade.php",
+		"/Desarrollo/home/public/crud/.env",
+		"/Desarrollo/home/public/crud/config/app.php",
+		"/Desarrollo/home/public/crud/tests/todolist.txt",
+		"/Desarrollo/home/public/crud/resources/views/sistema/Investigador.balde.php",
+		"/Desarrollo/home/public/crud/config/view.php",
+		"/Desarrollo/home/public/crud/resources/views/sistema/home.blade.php",
+		"/Desarrollo/home/public/crud/config/auth.php",
+		"/Desarrollo/home/public/crud/resources/views/sistema/welcome.blade.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Auth/RegisterController.php",
+		"/Desarrollo/home/public/crud/resources/views/datos/edit.blade.php",
+		"/Desarrollo/home/public/WebPlataformIttg/app/Http/Controllers/HomeController.php",
+		"/Desarrollo/home/public/crud/app/Models/User.php",
+		"/Desarrollo/home/public/crud/resources/views/NotFound.php",
+		"/Desarrollo/home/public/crud/resources/views/welcome.blade.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Controller.php",
+		"/Desarrollo/home/public/crud/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Auth/LoginController.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/IntegracionController.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/DatosController.php",
+		"/Desarrollo/home/public/crud/app/Datos.php",
+		"/Desarrollo/home/public/crud/app/Proyecto.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/ConvocatoriaController.php",
+		"/Desarrollo/home/public/crud/app/Convocatoria.php",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/ProyectoController.php",
+		"/Desarrollo/home/public/crud/routes/rutas.txt",
+		"/Desarrollo/home/public/crud/resources/views/layouts/sistema.blade.php",
+		"/Desarrollo/home/public/crud/resources/views/layous/sitema.blade.php",
+		"/Desarrollo/web/sii/public/crud/resources/views/dato/edit.blade.php",
+		"/Desarrollo/web/sii/public/crud/resources/views/create.blade.php",
+		"/Desarrollo/web/negocio/module/Tienda/src/Tienda/Model/Entity/Venta.php",
+		"/Desarrollo/web/negocio/module/Tienda/src/Tienda/Model/Entity/Usuario.php",
+		"/Desarrollo/web/negocio/module/Tienda/src/Tienda/Model/Entity/Compra.php",
+		"/Desarrollo/web/negocio/module/Tienda/view/tienda/encargado/vender.phtml",
+		"/Desarrollo/web/negocio/public/js/tienda_vender.js",
+		"/Desarrollo/web/negocio/module/Auth/Module.php",
+		"/Desarrollo/web/negocio/module/Tienda/src/Tienda/Model/Entity/Producto.php",
+		"/Desarrollo/web/negocio/detalles negocio.txt",
+		"/Desarrollo/web/negocio/module/Tienda/src/Tienda/Controller/EncargadoController.php",
+		"/Desarrollo/web/negocio/module/Tienda/src/Tienda/Model/Entity/Existencia.php",
+		"/Users/jogs78/Dropbox/personal/casa/macs.html",
+		"/Desarrollo/web/titulacion/module/Division/src/Division/Controller/IndexController.php",
+		"/Desarrollo/web/titulacion/module/Egresado/src/Egresado/Model/EgresadoModel.php",
+		"/Desarrollo/web/titulacion/module/Egresado/view/egresado/index/index.phtml",
+		"/Desarrollo/web/titulacion/public/js/egresado/createInput.js",
+		"/Desarrollo/web/titulacion/public/js/egresado/setRequisito.js",
+		"/Desarrollo/web/titulacion/public/js/egresado/showDescripcion.js",
+		"/Desarrollo/web/titulacion/module/Application/view/layout/layout.phtml",
+		"/Desarrollo/web/titulacion/module/Application/src/Application/Model/ConfigModel.php",
+		"/Desarrollo/web/titulacion/module/Application/view/application/index/index.phtml",
+		"/Desarrollo/web/titulacion/module/Application/view/application/index/nuevo.phtml",
+		"/Desarrollo/web/titulacion/module/Application/src/Application/Controller/IndexController.php",
+		"/Desarrollo/web/titulacion/module/Application/src/Application/Model/LoginModel.php",
+		"/Desarrollo/web/titulacion/module/Application/src/Application/Model/AddModel.php",
+		"/Desarrollo/web/cesc/util/venta.php",
+		"/Desarrollo/web/cesc/sistema/wpdf.php",
+		"/Desarrollo/web/cesc/nofoto3.JPG",
+		"/Desarrollo/web/cesc/modelo/conf.inc.php",
+		"/Users/jogs78/Dropbox/2173/ittg/curso prodep/quienes.txt",
+		"/Desarrollo/web/cesc/vista/frm_venta.php",
+		"/Desarrollo/titulacion/module/Egresado/view/egresado/index/index.phtml",
+		"/Desarrollo/titulacion/module/Egresado/src/Egresado/Controller/IndexController.php",
+		"/Desarrollo/titulacion/module/Egresado/view/egresado/index/egresado.phtml",
+		"/Desarrollo/titulacion/module/Egresado/view/layout/layout.phtml",
+		"/Desarrollo/titulacion/module/Egresado/src/Egresado/Model/EgresadoModel.php",
+		"/Desarrollo/titulacion/module/Application/src/Application/Model/ConfigModel.php",
+		"/Desarrollo/titulacion/module/Application/src/Application/Model/LoginModel.php",
+		"/Desarrollo/negocio/module/Tienda/view/tienda/existencias/comprar.phtml",
+		"/Desarrollo/negocio/module/Tienda/src/Tienda/Controller/ExistenciasController.php",
+		"/Desarrollo/titulacion/titulacion.sql",
+		"/Desarrollo/titulacion/config/autoload/local.php",
+		"/Desarrollo/titulacion/config/autoload/global.php",
+		"/Desarrollo/otro/app/Http/Middleware/VerifyCsrfToken.php",
+		"/Desarrollo/otro/app/Providers/RouteServiceProvider.php",
+		"/Desarrollo/otro/app/Http/Kernel.php",
+		"/Desarrollo/otro/app/Http/Middleware/Cors.php",
+		"/Desarrollo/descartes/unidad 5/acceso.html",
+		"/Desarrollo/descartes/unidad 5/acceso.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"file",
+			"hidens",
+			"fade",
+			"btndel",
+			"    \n",
+			"for",
+			"->",
+			"sin entregable",
+			"1",
+			"0",
+			"false",
+			"true",
+			"\\\\$",
+			"))\n",
+			"    <",
+			"==\"\") alert",
+			"0",
+			"frmentregables",
+			"\n    ",
+			"activi",
+			"list",
+			"data[0]",
+			"    <",
+			"row",
+			"6",
+			");\n",
+			"btndel",
+			"frmcolaboradores",
+			"Enregables",
+			" ></",
+			"colaboradoresModal",
+			"col-3",
+			"maxlength=\"250\"",
+			"csrf",
+			",\n",
+			"$proyecto->resumen",
+			"form",
+			"proyecto",
+			"create",
+			"crete(",
+			"$request->all()",
+			"Fecha",
+			"-md-",
+			"        $logeado = Auth::user();\n\n",
+			"cobaborador_",
+			"index",
+			"aut",
+			"destroy",
+			"especia",
+			"create",
+			"linea->linea",
+			"proyecto",
+			"redirect",
+			"');\n",
+			"<ul>\n    <li><a href=\"\"></a></li>\n    <li><a href=\"\"></a></li>\n    <li><a href=\"\"></a></li>\n</ul>\n",
+			"endsection",
+			"ul",
+			"update",
+			"register",
+			"\n        ",
+			"        ",
+			"entidad",
+			"index",
+			"update(",
+			"id_proyecto",
+			"edit",
+			"     */\n",
+			"Inicio",
+			"$container = new \\Zend\\Session\\Container('namespace');\n$container",
+			"$container = new \\Zend\\Session\\Container('namespace');\n$container->",
+			"fecha_hora",
+			"container",
+			"){\n",
+			"fecha_hora",
+			"\">\n",
+			"::",
+			"select",
+			"select ",
+			"vender",
+			"finalizar",
+			"\\Tienda\\Model\\Entity\\",
+			"       $entidaddesgloce=new \\Tienda\\Model\\Entity\\Desgloce();\najfinalizar",
+			"\\Tienda\\Model\\Entity",
+			"ajfinalizar",
+			"[",
+			"row.",
+			"hidden",
+			"hideen",
+			"hideens",
+			"sin elementos",
+			"5",
+			"aj",
+			"agrega",
+			"agregar",
+			"pre_registrar",
+			"btnregistrar",
+			"form",
+			"vender",
+			"$info",
+			"cargar_venta",
+			"id_venta",
+			"cargar_venta(",
+			"id_venta",
+			"cargar_venta(",
+			"cargar_venta",
+			"t1",
+			"hidden",
+			"prepareStatement(",
+			"ACTO",
+			"projectRow",
+			"d",
+			"192.168.56.105",
+			"TIME",
+			"zf2",
+			";\n",
+			"'];\n",
+			"	$",
+			"GET",
+			"<input type=\"text\">",
+			"table",
+			"table>tr>2*td",
+			"			'",
+			"			",
+			"html",
+			" ",
+			"long",
+			"\n		",
+			"0"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"==\"\"){alert",
+			"titulacion",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 8,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "public/js/gastos.js",
+					"settings":
+					{
+						"buffer_size": 2243,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1276,
+								1276
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 141.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/Investigador/GastosController.php",
+					"settings":
+					{
+						"buffer_size": 2241,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2041,
+								2213
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 544.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Models/Gastos.php",
+					"settings":
+					{
+						"buffer_size": 271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								271,
+								271
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/views/gastos/index.blade.php",
+					"settings":
+					{
+						"buffer_size": 4684,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3867,
+								3921
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1158.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/Http/Controllers/HomeController.php",
+					"settings":
+					{
+						"buffer_size": 1831,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								572,
+								572
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/js/vinculacion.js",
+					"settings":
+					{
+						"buffer_size": 2381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1795,
+								1795
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 488.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/Http/Controllers/Investigador/VinculacionController.php",
+					"settings":
+					{
+						"buffer_size": 2945,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2377,
+								2377
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/Models/Vinculacion.php",
+					"settings":
+					{
+						"buffer_size": 225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								207,
+								218
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "resources/views/vinculacion/show.blade.php",
+					"settings":
+					{
+						"buffer_size": 1818,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								999,
+								999
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Http/Controllers/Investigador/EntregablesController.php",
+					"settings":
+					{
+						"buffer_size": 2157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1280,
+								1280
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "config/filesystems.php",
+					"settings":
+					{
+						"buffer_size": 2258,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1639,
+								1668
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 348.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.sftp":
+	{
+		"height": 210.0
+	},
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Lorem ipsum dolor sit amet, consectetur adipisicin"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 302.0,
+	"status_bar_visible": true
+}
