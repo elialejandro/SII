@@ -14,3 +14,11 @@ o
 
 >>git checkout -b <nombre_rama> <entry_point>
 
+// mandar a traber los que tiene la rama_x
+> git checkout -t <repositorio> <rama>
+
+git status
+git add <path archivo modificad> // prepara para "commit"
+git commit -m "MENSAJE"
+
+
