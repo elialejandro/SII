@@ -1,0 +1,16 @@
+
+jogs78@p3plcpnl0515 [~/public_html/ittg/sii]$ git pull origin master
+
+
+
+//con >git log<br> muestro los commits que tengo
+
+
+git branch <nombre_rama> <entry_point>
+//entry_point basta con los primeros 10 dígitos
+//y luego >git checkuot <nombre_rama>
+
+o
+
+>>git checkout -b <nombre_rama> <entry_point>
+
