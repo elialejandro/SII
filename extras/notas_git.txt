@@ -16,3 +16,11 @@ o
 
 // Permite borrar una rama
 git branch -D <nombre_rama>
+// mandar a traber los que tiene la rama_x
+> git checkout -t <repositorio> <rama>
+
+git status
+git add <path archivo modificad> // prepara para "commit"
+git commit -m "MENSAJE"
+
+
