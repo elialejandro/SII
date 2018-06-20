@@ -1,26 +1,47 @@
+# NOTAS GIT
 
-jogs78@p3plcpnl0515 [~/public_html/ittg/sii]$ git pull origin master
+Para actualizar desde el repositorio principal
 
+``` 
+$ git pull origin master 
+```
 
+con ```> git log ``` muestro los commits que tengo
 
-//con >git log<br> muestro los commits que tengo
-
-
+```
 git branch <nombre_rama> <entry_point>
-//entry_point basta con los primeros 10 dígitos
-//y luego >git checkuot <nombre_rama>
+```
+
+``` entry_point ``` basta con los primeros 10 dígitos
+luego ```$ git checkuot <nombre_rama>```
 
 o
 
->>git checkout -b <nombre_rama> <entry_point>
+``` 
+git checkout -b <nombre_rama> <entry_point> 
+```
 
-// Permite borrar una rama
-git branch -D <nombre_rama>
-// mandar a traber los que tiene la rama_x
-> git checkout -t <repositorio> <rama>
+Permite borrar una rama
+```
+$ git branch -D <nombre_rama>
+```
 
-git status
-git add <path archivo modificad> // prepara para "commit"
-git commit -m "MENSAJE"
+Mandar a traer los commits que tiene la rama_x
+```
+$ git checkout -t <repositorio> <rama>
+```
+
+Saber el estado del respositorio
+```
+$ git status
+```
+
+Preparar un nuevo commit
+```
+# Agrega un archivo al commit
+$ git add <path archivo modificad>
+# Se realiza el commit con un mensaje descriptivo
+$ git commit -m "MENSAJE"
+```
 
 
