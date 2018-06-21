@@ -19,7 +19,7 @@ class Proyecto extends Model
 
 
    protected $fillable = [
-    'titulo', 'nombre_ies', 'pe', 'area', 
+    'titulo', 'financiado', 'nombre_ies', 'pe', 'area', 
     'linea', 'fecha_inicio', 'fecha_fin', 
     'convocatoria_id', 'responsable', 'tipo_investigacion'];
 
