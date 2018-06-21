@@ -34,13 +34,21 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
 
 ////periodos para para ejercer el recurso
 
+//mostrar = 0,1,2 = no,ver,todo
+
+/*
+  if($proyecto->responsable==Auth::user()->id){
+    if(sometido) solo ver
+    else todo
+  if($colaborador->users_id==Auth::user()->id) 
+    solo ver
+  
+*/
 
  -->
 @extends('layouts.app')
 @section('content')
 <div class="container">
-
-
       <a href="/proyecto/create" class="btn btn-primary">Agregar Proyecto</a>
     <br />
     @if (\Session::has('success'))
@@ -83,10 +91,11 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                       <li><a href="{{action('Investigador\CronogramaController@index', $proyecto['id'])}}">4. Cronograma</a></li>
                       <li><a href="{{action('Investigador\GastosController@index', $proyecto['id'])}}">5. Presupuesto</a></li>
                       <li><a href="{{action('Investigador\VinculacionController@mostrar', $proyecto['id'])}}">6. Vinculación</a></li>
-                      <li><a href="#">7. Someter</a></li>
+                      <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li>
                     </ol>
                   </div>
-                  <div class="btn-group">
+<!--
+                   <div class="btn-group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Seguimiento<span class="caret"></span>
                     </button>
@@ -96,7 +105,7 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                       <li><a href="#">10. Informes Técnicos</a></li>
                     </ul>
                   </div>
-
+ -->
                 </td>
                   <td>
                     <form action="{{action('Investigador\ProyectoController@destroy', $proyecto['id'])}}" method="post">
@@ -113,11 +122,21 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                         <td></td>
                         <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
                         <td colspan="2" > 
-                            <button class="btn btn-active" type="button">Ver</button>
-                            @if(!$colaborador->participacion)
-                              <button id="si{{$colaborador->id}}" class="btn btn-success btnaceptar" value="{{$colaborador->id}}" type="button">Aceptar</button>
-                              <button id="no{{$colaborador->id}}" class="btn btn-danger  btnrechaza" value="{{$colaborador->id}}" type="button">Rechazar</button>
-                            @endif
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Documentos<span class="caret"></span>
+                            </button>
+                            <ol class="dropdown-menu text-left">
+                              <li><a href="#">CR-01</a></li>
+                              <li><a href="#">CR-02</a></li>
+                              <li><a href="#">Vinculacion</a></li>
+                              <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li>
+                            </ol>
+                          </div>
+                          @if($colaborador->participacion==0)
+                            <button class="btn btn-success btnaceptar" value="{{$colaborador->id}}">Aceptar</button>
+                            <button class="btn btn-danger btnrechaza" value="{{$colaborador->id}}">Rechazar</button>
+                          @endif
                         </td>
                       </tr>
                     @endif

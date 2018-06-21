@@ -54,6 +54,7 @@ class HomeController extends Controller
         $request->merge( array( 'page' => $page ) );
 
         $logeado = Auth::user();
+        
         switch ($logeado->rol) {
             case 'Investigador':
                 $convocatorias=Convocatoria::paginate(2);

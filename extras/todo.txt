@@ -1,0 +1,7 @@
+someter los proyectos, y que los sometidos solo se puedan ver...
+//guardar en session el page del index
+//sesion time out
+
+
+//
+INSERT INTO `colaboradores` (`id`, `users_id`, `proyecto_id`, `participacion`) VALUES (74, 1, 4, NULL);
