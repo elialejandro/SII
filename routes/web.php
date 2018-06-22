@@ -52,6 +52,11 @@ Route::get('vinculacion/{idpro}','Investigador\VinculacionController@mostrar');
 Route::post('vinculacion','Investigador\VinculacionController@agregar');
 Route::post('vinculacion/eliminar','Investigador\VinculacionController@eliminar');
 
+Route::get('someter/{idpro}','Investigador\SometerController@someter');
+Route::post('someter/{idpro}','Investigador\SometerController@update');
+
+
+
 Route::get('/', function () {
     return view('sistema.welcome');
 });

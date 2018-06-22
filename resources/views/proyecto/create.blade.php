@@ -22,6 +22,13 @@
         </div>
         <div class="row">
           <div class="form-group col-md-12">
+            <label for="financiado">¿Este proyecto será financiado? </label>
+            <input type="radio" name="financiado" value="1">Si</input>
+            <input type="radio" name="financiado" value="0" checked>No</input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
             <label for="nombre_ies">Nombre de la Institución:</label>
               <select name="nombre_ies">
                @foreach($ies as $ie)

@@ -28,34 +28,10 @@
 	"buffers":
 	[
 		{
-			"file": "basededatos/todo.php",
-			"settings":
-			{
-				"buffer_size": 1782,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "resources/views/sistema/Investigador.blade.php",
 			"settings":
 			{
-				"buffer_size": 6053,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/js/colaboradores.js",
-			"settings":
-			{
-				"buffer_size": 2094,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/js/entregables.js",
-			"settings":
-			{
-				"buffer_size": 2461,
+				"buffer_size": 6911,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,15 +39,12 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 2886,
+				"buffer_size": 3033,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Http\\Controllers\\Investigador;\n\nuse App\\Http\\Controllers\\Controller;\n\nuse Illuminate\\Http\\Request;\n\nuse Illuminate\\Support\\Facades\\DB;\nuse Illuminate\\Support\\Facades\\Auth;\n\n\nuse App\\Models\\Proyecto;\nuse App\\Models\\Colaboradores;\n//∫use App\\Models\\User;\n\nclass ColaboradoresController extends Controller\n{\n    public function __construct()\n    {\n        $this->middleware('auth');\n    }\n\n    /**\n     * Display a listing of the resource.\n     *\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function index($idproy)\n    {\n\n        $logeado = Auth::user();\n\n        $proyecto= Proyecto::find($idproy);\n\n        $investigadores = DB::table('users')\n                    ->where('rol', 'Investigador')\n                    ->where('id', '<>', $logeado->id)\n                    ->get();\n\n        $colaboradores = DB::table('colaboradores')\n            ->where('proyecto_id',$idproy)\n            ->join('users', 'users.id', '=', 'colaboradores.users_id')\n            ->select('users.id', 'users.cvutecnm', 'users.name', 'colaboradores.participacion')\n            ->get();\n        return view('colaboradores/index',compact('colaboradores','proyecto','investigadores'));\n    }\n\n\n    /**\n     * Store a newly created resource in storage.\n     *\n     * @param  \\Illuminate\\Http\\Request  $request\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function invitar(Request $request)\n    {\n\n        $Colaboradores  = new Colaboradores();\n        $Colaboradores->users_id=$request->input('users_id');\n        $Colaboradores->proyecto_id=$request->input('proyecto_id');\n        $Colaboradores->save();\n\n        $Retornar = DB::table('colaboradores')\n            ->where('proyecto_id',$request->input('proyecto_id'))\n            ->join('users', 'users.id', '=', 'colaboradores.users_id')\n            ->select('users.id', 'users.cvutecnm', 'users.name', 'colaboradores.participacion')\n            ->where('users.id',$request->input('users_id') )           \n            ->get();\n\n        return response()->json($Retornar);\n    }\n\n\n    public function desinvitar(Request $request)\n    {\n        $Colaboradores = Colaboradores::where('proyecto_id' , $request->input('proyecto_id') ) \n                    ->where ('users_id' , $request->input('users_id') )\n                    ->delete();\n        $arrayName = array('id' =>  $request->input('users_id') );\n        return response()->json( $arrayName );                         \n    }\n\n    public function rechazar(Request $request)\n    {\n        $Colaboradores= Colaboradores::find($request->input('colaboracion'));\n        if ($Colaboradores==null)\n                $Retornar=array('colaboracion'=> $request->input('colaboracion'), 'rechazado' => false);\n        else{\n            $Colaboradores->delete();\n            $Retornar=array('colaboracion'=> $request->input('colaboracion'), 'rechazado' => true);\n        }\n        return response()->json($Retornar);\n    }\n\n    public function aceptar(Request $request){\n        $Colaboradores= Colaboradores::find($request->input('colaboracion'));\n        if ($Colaboradores==null)\n                $Retornar=array('colaboracion'=> $request->input('colaboracion'), 'aceptado' => false);\n        else{\n            $Colaboradores->participacion=1;\n            $Colaboradores->save();\n            $Retornar=array('colaboracion'=> $request->input('colaboracion'), 'aceptado' => true);\n        }\n        return response()->json($Retornar);        \n    }\n\n}\n",
 			"file": "app/Http/Controllers/Investigador/ColaboradoresController.php",
-			"file_size": 3516,
-			"file_write_time": 1528258365000000,
 			"settings":
 			{
 				"buffer_size": 3468,
@@ -79,18 +52,18 @@
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Investigador/EntregablesController.php",
+			"file": "resources/views/sistema/welcome.blade.php",
 			"settings":
 			{
-				"buffer_size": 2157,
+				"buffer_size": 2272,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/entregables/index.blade.php",
+			"file": "config/app.php",
 			"settings":
 			{
-				"buffer_size": 3974,
+				"buffer_size": 8593,
 				"line_ending": "Unix"
 			}
 		},
@@ -103,10 +76,54 @@
 			}
 		},
 		{
-			"file": ".gitignore",
+			"file": "resources/views/sistema/NotFound.php",
 			"settings":
 			{
-				"buffer_size": 151,
+				"buffer_size": 1935,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/layouts/app.blade.php",
+			"settings":
+			{
+				"buffer_size": 4241,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/HomeController.php",
+			"settings":
+			{
+				"buffer_size": 1840,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nnamespace App\\Http\\Controllers\\Investigador;\n\nuse App\\Http\\Controllers\\Controller;\n\nuse Illuminate\\Http\\Request;\n\n\nuse Illuminate\\Http\\UploadedFile;\nuse Illuminate\\Http\\File;\nuse Illuminate\\Support\\Facades\\Storage;\n\n//use Illuminate\\Support\\Facades\\DB;\n//use Illuminate\\Support\\Facades\\Auth;\n\n\nuse App\\Models\\Proyecto;\nuse App\\Models\\Vinculacion;\n//use App\\Models\\User;\n\nclass SometerController extends Controller\n{\n    public function __construct()\n    {\n        $this->middleware('auth');\n    }\n\n    public function someter($idproy)\n    {\n        $proyecto= Proyecto::find($idproy);\n\n//1. Protocolo\n/*\n////protocolo\nresumen, introduccion, antecedentes, hipotesis, marco_teorico, \nmetas, objetivo_general, objetivos_especificos, impacto_beneficio, \nmetodologia, referencias, lugar, infraestrucutura\n*/\n\n\n//2. Colaboradores\n//3. Entregables\n//4. Cronograma\n//5. Presupuesto (financiado)\n        return view('someter/someter',compact('proyecto'));\n    }\n    \n    public function update(Request $request, $idproy)\n    {\n//        return redirect('home')->with('success', 'Information del protocolo ha sido actualizada');\n        //return redirect()->back()->with('success', 'Information del protocolo ha sido actualizada');\n    }\n\n}\n",
+			"file": "app/Http/Controllers/Investigador/SometerController.php",
+			"file_size": 1249,
+			"file_write_time": 1529561576000000,
+			"settings":
+			{
+				"buffer_size": 1238,
+				"line_ending": "Unix",
+				"name": "<?php"
+			}
+		},
+		{
+			"file": "resources/views/someter/someter.blade.php",
+			"settings":
+			{
+				"buffer_size": 1102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "extras/todo.txt",
+			"settings":
+			{
+				"buffer_size": 290,
 				"line_ending": "Unix"
 			}
 		}
@@ -163,31 +180,41 @@
 	},
 	"file_history":
 	[
+		"/Desarrollo/home/public/crud/app/Models/Restricciones.php",
+		"/Desarrollo/home/public/crud/public/js/aceptacion.js",
+		"/Desarrollo/home/public/crud/public/js/colaboradores.js",
+		"/Desarrollo/home/public/crud/resources/views/proyecto/create.blade.php",
+		"/Desarrollo/home/public/crud/app/Models/Proyecto.php",
+		"/Desarrollo/home/public/crud/resources/views/proyecto/createespecial.blade.php",
+		"/Desarrollo/home/public/crud/public/js/vinculacion.js",
+		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/EntregablesController.php",
+		"/Desarrollo/home/public/crud/resources/views/entregables/index.blade.php",
+		"/Desarrollo/home/public/crud/public/js/entregables.js",
+		"/Desarrollo/home/public/crud/extras/notas_git.txt",
+		"/Desarrollo/home/public/crud/extras/todo.txt",
+		"/Desarrollo/home/public/crud/basededatos/todo.php",
+		"/Desarrollo/home/public/crud/.env",
+		"/Desarrollo/home/public/crud/.gitignore",
 		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/ProtocoloController.php",
 		"/Desarrollo/home/public/crud/routes/2018_05_31_17_52_rutas.txt",
 		"/Desarrollo/home/public/crud/app/Http/Controllers/Coordinador/ConvocatoriaController.php",
 		"/Desarrollo/home/public/crud/app/Models/Entregables.php",
 		"/Desarrollo/home/public/crud/resources/views/protocolo/show.blade.php",
 		"/Desarrollo/home/public/crud/resources/views/layouts/app.blade.php",
-		"/Desarrollo/home/public/crud/public/js/aceptacion.js",
 		"/Desarrollo/home/public/crud/app/Models/Protocolo.php",
 		"/Desarrollo/home/public/crud/app/Models/Programa_educativo.php",
-		"/Desarrollo/home/public/crud/resources/views/proyecto/createespecial.blade.php",
 		"/Desarrollo/home/public/crud/app/Models/Colaboradores.php",
 		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/ProyectoController.php",
-		"/Desarrollo/home/public/crud/app/Models/Proyecto.php",
 		"/Desarrollo/home/public/crud/resources/views/colaboradores/index.blade.php",
 		"/Desarrollo/home/public/crud/app/Http/Middleware/VerifyCsrfToken.php",
 		"/Desarrollo/home/public/crud/basededatos/colaboradores.sql",
 		"/Desarrollo/home/public/crud/resources/views/integracion/listado.blade.php",
 		"/Desarrollo/home/public/crud/app/Http/Controllers/Coordinador/IntegracionController.php",
-		"/Desarrollo/home/public/crud/resources/views/proyecto/create.blade.php",
 		"/Desarrollo/home/public/crud/resources/views/convocatoria/index.blade.php",
 		"/Desarrollo/home/public/crud/app/Models/Convocatoria.php",
 		"/Desarrollo/home/public/crud/resources/views/convocatoria/create.blade.php",
 		"/Desarrollo/home/public/crud/resources/views/convocatoria/edit.blade.php",
 		"/Desarrollo/home/public/crud/routes/api.php",
-		"/Desarrollo/home/public/crud/public/js/colaboradores.js",
 		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/ColaboradoresController.php",
 		"/Desarrollo/home/public/crud/routes/web.php",
 		"/Desarrollo/home/public/crud/resources/views/proyecto/edit.blade.php",
@@ -199,7 +226,6 @@
 		"/Desarrollo/home/public/crud/basededatos/solodatos.sql",
 		"/Desarrollo/home/public/crud/app/Http/Controllers/Investigador/DatosController.php",
 		"/Desarrollo/home/public/crud/resources/views/sistema/Coordinador.blade.php",
-		"/Desarrollo/home/public/crud/.env",
 		"/Desarrollo/home/public/crud/config/app.php",
 		"/Desarrollo/home/public/crud/tests/todolist.txt",
 		"/Desarrollo/home/public/crud/resources/views/sistema/Investigador.balde.php",
@@ -281,16 +307,7 @@
 		"/Desarrollo/otro/resources/views/welcome.blade.php",
 		"/Desarrollo/descartes/unidad 3/3_html_jquery/contacto.html",
 		"/Desarrollo/descartes/unidad 3/3_html_jquery/jquery-1.9.1.js",
-		"/Desarrollo/descartes/unidad 3/1_html_jscript/contacto.html",
-		"/Desarrollo/descartes/unidad 3/3_html_jquery/script.js",
-		"/Desarrollo/descartes/unidad 3/2_html_ajax/pagina.html",
-		"/Desarrollo/descartes/unidad 3/0_html_jscript/foco.html",
-		"/Desarrollo/instalar_vagrants/descartes.conf",
-		"/Users/jogs78/Dropbox/C&J/estidisticas/querrys para stad",
-		"/Desarrollo/so/hilos/Abundantes.java",
-		"/Users/jogs78/Dropbox/2161/ittg/residencias/para residencias/Documentacion.txt",
-		"/Users/jogs78/Dropbox/2161/ittg/RIP/2016_02_26 REVISION 11_26",
-		"/Desarrollo/so/_hil/Juntos01.java"
+		"/Desarrollo/descartes/unidad 3/1_html_jscript/contacto.html"
 	],
 	"find":
 	{
@@ -308,6 +325,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"acept",
+			"acep",
+			"<?",
+			"PRUEBA",
 			"col-3",
 			"maxlength=\"250\"",
 			"csrf",
@@ -449,23 +470,23 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 11,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "basededatos/todo.php",
+					"file": "resources/views/sistema/Investigador.blade.php",
 					"settings":
 					{
-						"buffer_size": 1782,
+						"buffer_size": 6911,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3887,
+								3887
 							]
 						],
 						"settings":
@@ -477,119 +498,26 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 9.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 958.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/sistema/Investigador.blade.php",
-					"settings":
-					{
-						"buffer_size": 6053,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 1.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/js/colaboradores.js",
-					"settings":
-					{
-						"buffer_size": 2094,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								2094
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 11.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/js/entregables.js",
-					"settings":
-					{
-						"buffer_size": 2461,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 299.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "routes/web.php",
 					"settings":
 					{
-						"buffer_size": 2886,
+						"buffer_size": 3033,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2617,
+								2624
 							]
 						],
 						"settings":
@@ -600,13 +528,13 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 254.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 2,
 					"file": "app/Http/Controllers/Investigador/ColaboradoresController.php",
 					"settings":
 					{
@@ -637,19 +565,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/Http/Controllers/Investigador/EntregablesController.php",
+					"buffer": 3,
+					"file": "resources/views/sistema/welcome.blade.php",
 					"settings":
 					{
-						"buffer_size": 2157,
+						"buffer_size": 2272,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								257,
+								257
 							]
 						],
 						"settings":
@@ -662,25 +590,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 355.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "resources/views/entregables/index.blade.php",
+					"buffer": 4,
+					"file": "config/app.php",
 					"settings":
 					{
-						"buffer_size": 3974,
+						"buffer_size": 8593,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								486,
+								487
 							]
 						],
 						"settings":
@@ -689,17 +617,17 @@
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 595.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 5,
 					"file": ".env",
 					"settings":
 					{
@@ -710,8 +638,8 @@
 						"selection":
 						[
 							[
-								251,
-								251
+								291,
+								291
 							]
 						],
 						"settings":
@@ -728,19 +656,175 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": ".gitignore",
+					"buffer": 6,
+					"file": "resources/views/sistema/NotFound.php",
 					"settings":
 					{
-						"buffer_size": 151,
+						"buffer_size": 1935,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								151,
-								151
+								1858,
+								1858
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 369.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "resources/views/layouts/app.blade.php",
+					"settings":
+					{
+						"buffer_size": 4241,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								336,
+								336
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/Http/Controllers/HomeController.php",
+					"settings":
+					{
+						"buffer_size": 1840,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1007,
+								1007
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Http/Controllers/Investigador/SometerController.php",
+					"settings":
+					{
+						"buffer_size": 1238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								768,
+								768
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<?php",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "resources/views/someter/someter.blade.php",
+					"settings":
+					{
+						"buffer_size": 1102,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								374,
+								243
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "extras/todo.txt",
+					"settings":
+					{
+						"buffer_size": 290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								290,
+								290
 							]
 						],
 						"settings":

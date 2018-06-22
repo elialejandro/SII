@@ -17,5 +17,8 @@ class Colaboradores extends Model
 //		  $this->belongsTo('App\Models\Proyecto', 'proyecto_id');
 //	}
 
-
+	public function quien(){
+		return 
+		   $this->hasOne('App\Models\User', 'id', 'users_id');
+	}
 }

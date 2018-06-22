@@ -1,0 +1,22 @@
+//con >git log<br> muestro los commits que tengo
+
+
+git branch <nombre_rama> <entry_point>
+//entry_point basta con los primeros 10 dígitos
+//y luego >git checkuot <nombre_rama>
+
+o
+
+>>git checkout -b <nombre_rama> <entry_point>
+
+// mandar a traber los que tiene la rama_x
+> git checkout -t <repositorio> <rama>
+
+git status
+git add <path archivo modificad> // prepara para "commit"
+git commit -m "MENSAJE"
+
+git push origin master
+
+//duda si es pull para traer los cambios?
+git pull origin master
