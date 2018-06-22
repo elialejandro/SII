@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\Proyecto;
 use App\Models\Convocatoria;
+use App\Models\Colaboradores;
+use App\Models\User;
 
 use App\Models\Vinculacion;
 //use App\Models\User;
@@ -30,30 +32,33 @@ class SometerController extends Controller
 
     public function someter($idproy)
     {
+/*
         $validacion = array(
-            'convocatoria' => array('resultado' => "resultado", 'mensaje' => "mensaje", ) , 
-            'rubro' => array('resultado' => "resultado", 'mensaje' => "mensaje", ) , 
+            'convocatoria' => array('rubro' => "rubro" ,'resultado' => "resultado", 'mensaje' => "mensaje", ) , 
+            'rubro' => array('rubro' => "rubro" ,'resultado' => "resultado", 'mensaje' => "mensaje", ) , 
 
             );
+*/
+        $puede = true;
 
         $proyecto= Proyecto::find($idproy);
 
 //0.Convocatoria en tiempo
-        $paymentDate = new \DateTime(); // Today
-        $paymentDate->format('d/m/Y'); // echos today! 
+        $ConvocatoriaFechaInicio = new \DateTime($proyecto->Convocatoria->Fecha_inicio);
+        $ConvocatoriaFechaFin  = new \DateTime($proyecto->Convocatoria->Fecha_fin);
+        $fechaSometido = new \DateTime(); // Today
+        $fechaSometido->format('d/m/Y'); // echos today! 
 
-        $contractDateBegin = new \DateTime($proyecto->Convocatoria->Fecha_inicio);
-        $contractDateEnd  = new \DateTime($proyecto->Convocatoria->Fecha_fin);
-        $validacion["convocatoria"]["rubro"] = "convocatoria";
-
+        $validacion["convocatoria"]["categoria"] = "Convocatoria";
         if(
-          $paymentDate->getTimestamp() > $contractDateBegin->getTimestamp() && 
-          $paymentDate->getTimestamp() < $contractDateEnd->getTimestamp() ) {
-            $validacion["convocatoria"]["resultado"] = true;
+          $fechaSometido->getTimestamp() > $ConvocatoriaFechaInicio->getTimestamp() && 
+          $fechaSometido->getTimestamp() < $ConvocatoriaFechaFin->getTimestamp() ) {
+            $validacion["convocatoria"]["resultado"] = "alert-success";
             $validacion["convocatoria"]["mensaje"] = "En tiempo ()";
         }else{
-            $validacion["convocatoria"]["resultado"] = false;
+            $validacion["convocatoria"]["resultado"] = "alert-danger";
             $validacion["convocatoria"]["mensaje"] = "Sometido fuera del tiempo de la convocatoria";
+            $puede = false;
         }
 
 //1. Protocolo
@@ -64,18 +69,48 @@ metas, objetivo_general, objetivos_especificos, impacto_beneficio,
 metodologia, referencias, lugar, infraestrucutura
 */
 
-
 //2. Colaboradores
+    $Colaboradores = $proyecto->Colaboradores;
+    $validacion["Colaboradores"]["categoria"] = "Colaboradores:";
+    $todos=true;
+    $acep="<ul>";
+    foreach($Colaboradores as $colaborador){
+        $quien = $colaborador->quien;
+        if ( $colaborador->participacion == null){
+            $acep .= "<li>$quien->name aún no acepta</li>";
+            $todos=false;
+        }else{
+            $acep .= "<li>$quien->name ya acepto</li>";
+        }
+    }
+    $acep .= "</ul>";
+    if($todos) {
+        $validacion["Colaboradores"]["resultado"] = "alert-success ";
+        $validacion["Colaboradores"]["mensaje"] = $acep;
+    }else{
+        $validacion["Colaboradores"]["resultado"] = "alert-danger";
+        $validacion["Colaboradores"]["mensaje"] = $acep;
+        $puede = false;
+    }    
+
 //3. Entregables
 //4. Cronograma
 //5. Presupuesto (financiado)
-        return view('someter/someter',compact('proyecto','validacion'));
+        return view('someter/someter',compact('proyecto','validacion','puede'));
     }
-    
+
     public function update(Request $request, $idproy)
     {
-//        return redirect('home')->with('success', 'Information del protocolo ha sido actualizada');
+        $fechaSometido = new \DateTime(); // Today
+        $proyecto= Proyecto::find($idproy);
+        $proyecto->sometido = $fechaSometido->format('Y-m-d');
+        $proyecto->save();
+//        return view('protocolo/show',compact('proyecto','protocolo'));
+       return redirect('home')->with('success', "El proyecto \"$proyecto->titulo\" ha sido sometido en fecha \"$proyecto->sometido\".");
         //return redirect()->back()->with('success', 'Information del protocolo ha sido actualizada');
     }
+
+    
+
 
 }

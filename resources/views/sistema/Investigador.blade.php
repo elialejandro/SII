@@ -52,12 +52,13 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
       <a href="/proyecto/create" class="btn btn-primary">Agregar Proyecto</a>
     <br />
     @if (\Session::has('success'))
-      <div class="alert alert-success">
+      <div class="alert alert-success" >
+          <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
         <p>{{ \Session::get('success') }}</p>
       </div><br />
      @endif
     @if (\Session::has('error'))
-    <div class="alert alert-danger">
+    <div class="alert alert-danger fade in alert-dismissible">
       <p>{{ \Session::get('error') }}</p>
     </div><br/>
     @endif
@@ -69,13 +70,16 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
         <th colspan="3">Proyecto</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="ttt">
       @foreach($convocatorias as $convocatoria)
       <tr class="info">
         <td colspan="4">{{$convocatoria['Nombre']}} ({{$convocatoria['Fecha_inicio']}} - {{$convocatoria['Fecha_fin']}})</td>               
       </tr>
           @foreach($convocatoria->proyectos as $proyecto)
+             <!-- Titulo: {{$proyecto['titulo']}} -  Director: {{$proyecto->director->name}}   -->
             @if($proyecto->responsable==Auth::user()->id)
+               <!-- Sometidomio"{{$proyecto->sometido}}"-->
+              @if($proyecto->sometido == "")
               <tr>
                 <td></td>
                 <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
@@ -106,7 +110,7 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                     </ul>
                   </div>
  -->
-                </td>
+               </td>
                   <td>
                     <form action="{{action('Investigador\ProyectoController@destroy', $proyecto['id'])}}" method="post">
                     @csrf
@@ -115,8 +119,31 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                   </form>
                 </td>
               </tr>
-            @else
-                <?php foreach ($proyecto->colaboradores as $colaborador): ?>
+              @else<!--  esta sometido mio -->
+              <tr>
+                <td></td>
+                <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
+                <td colspan="2" > 
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Documentos<span class="caret"></span>
+                    </button>
+                    <ol class="dropdown-menu text-left">
+                      <li><a href="#">CR-01</a></li>
+                      <li><a href="#">CR-02</a></li>
+                      @if($proyecto['vinculacion'] != "")
+                      <li><a href="#">Vinculacion</a></li>
+                      @endif
+                      <!-- <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li> -->
+                    </ol>
+                  </div>
+                                 <!-- Sometido2"{{$proyecto->sometido}}"-->
+                  
+                </td>
+              </tr>
+              @endif 
+            @else <!-- entonces no es mio -->
+                @foreach($proyecto->colaboradores as $colaborador)
                     @if($colaborador->users_id==Auth::user()->id)
                       <tr>
                         <td></td>
@@ -133,15 +160,14 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                               <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li>
                             </ol>
                           </div>
-                          @if($colaborador->participacion==0)
+                          @if($colaborador->participacion==0 && $proyecto->sometido == "")
                             <button class="btn btn-success btnaceptar" value="{{$colaborador->id}}">Aceptar</button>
                             <button class="btn btn-danger btnrechaza" value="{{$colaborador->id}}">Rechazar</button>
                           @endif
                         </td>
                       </tr>
                     @endif
-
-                <?php endforeach ?>
+                @endforeach                    
                 </td>
               </tr>
             @endif

@@ -8,12 +8,31 @@
       </div><br/>
     @endif
 <!--
+0.- Convocatoria
 1. Protocolo
 2. Colaboradores
 3. Entregables
 4. Cronograma
 5. Presupuesto (financiado)
 -->
+
+  @foreach($validacion as $rubro)
+    <div  class='alert {{$rubro["resultado"]}}'>
+       <strong>{{$rubro["categoria"]}} </strong>
+             <p>
+
+        {!!$rubro["mensaje"]!!}
+      </p>
+    </div>
+  @endforeach
+ @if($puede==true)
+    <form method="post" action="{{action('Investigador\SometerController@update', $proyecto->id)}}">  
+      {{ csrf_field() }}
+      <div class="row">
+        <button type="submit" class="btn btn-success" value="Submit">Someter</button>
+      </div>
+    </form>
+    @endif
    </div>
 @endsection
 
