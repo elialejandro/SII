@@ -44,4 +44,12 @@ $ git add <path archivo modificad>
 $ git commit -m "MENSAJE"
 ```
 
+Subir cambios al servidor
+```
+git push origin master
+```
 
+Traer cambios del servidor
+```
+git pull origin master
+```
