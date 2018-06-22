@@ -1,9 +1,9 @@
 # NOTAS GIT
 
-Para actualizar desde el repositorio principal
+Para actualizar desde el repositorio principal, baja desde remoto/rama_remota hasta local/"rama en la que este"
 
 ``` 
-$ git pull origin master 
+$ git pull <remote> <rama_remota> 
 ```
 
 con ```> git log ``` muestro los commits que tengo
@@ -57,5 +57,11 @@ git pull origin master
 mezcla la rama prueba en la rama en la que este actualmente (si quiero actualizar master primero me debo cambiar a esta)
 ```
 git merge prueba
+```
+
+Para actualizar, sube a remoto/rama_remota desde local/"rama en la que este"
+
+``` 
+$ git push <remote> <rama_remota> 
 ```
 
