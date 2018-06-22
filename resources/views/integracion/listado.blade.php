@@ -23,10 +23,24 @@
       <tr>
         <td></td>
           <td>
-              {{$proyecto['titulo']}}
+              {{$proyecto['titulo']}} <br>
+              Director: {{$proyecto->director->name}}
           </td>
           <td>
-              Director: {{$proyecto->director->name}}
+                                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Documentos<span class="caret"></span>
+                    </button>
+                    <ol class="dropdown-menu text-left">
+                      <li><a href="#">CR-01</a></li>
+                      <li><a href="#">CR-02</a></li>
+                      @if($proyecto['vinculacion'] != "")
+                      <li><a href="#">Vinculacion</a></li>
+                      @endif
+                      <!-- <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li> -->
+                    </ol>
+                  </div>
+
           </td>
       </tr>
           @endforeach

@@ -17,3 +17,6 @@ git add <path archivo modificad> // prepara para "commit"
 git commit -m "MENSAJE"
 
 git push origin master
+
+//duda si es pull para traer los cambios?
+git pull origin master

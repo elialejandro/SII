@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Proyecto;
+
 use App\Models\Convocatoria;
 
 use Illuminate\Http\Request;
@@ -54,6 +56,7 @@ class HomeController extends Controller
         $request->merge( array( 'page' => $page ) );
 
         $logeado = Auth::user();
+
         
         switch ($logeado->rol) {
             case 'Investigador':
@@ -62,7 +65,14 @@ class HomeController extends Controller
                 return view('sistema.Investigador',compact('convocatorias'));
                 break;
             case 'Coordinador':
-                return view('sistema.Coordinador');
+                $count = User::all()->count();
+                // $ci    = User::where('rol','Investigador')->count();
+                //   $cii    = User::where('rol','Coordinador')->count();
+//                $countproyect = Proyecto::all()->count();
+//                $catalogo = Catalago::all()->count();
+//                $entregable = Entregable::all()->count();
+                return view('sistema.Coordinador',compact('count'));
+
                 break;
 //            default:
 //                return view('sistema.home');

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restricciones extends Model
 {
-    protected $table='restircciones';
+    protected $table='catalogo_restircciones';
     public $timestamps =false;
 
    protected $fillable = [ 'descripcion', 'valor' ];
