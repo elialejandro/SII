@@ -1,6 +1,6 @@
 # NOTAS GIT
 
-Para actualizar desde el repositorio principal, baja desde remoto/rama_remota hasta local/"rama en la que este"
+Para actualizar desde el repositorio principal, descarga desde remoto/rama_remota hasta local/"rama en la que este"
 
 ``` 
 $ git pull <remote> <rama_remota> 
