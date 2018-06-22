@@ -53,3 +53,9 @@ Traer cambios del servidor
 ```
 git pull origin master
 ```
+
+mezcla la rama prueba en la rama en la que este actualmente (si quiero actualizar master primero me debo cambiar a esta)
+```
+git merge prueba
+```
+
