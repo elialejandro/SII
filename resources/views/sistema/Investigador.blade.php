@@ -84,19 +84,19 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                 <td></td>
                 <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
                 <td colspan="1">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Protocolo y desarrollo <span class="caret"></span>
                     </button>
-                    <ol class="dropdown-menu text-left">
-                      <li><a href="{{action('Investigador\ProtocoloController@mostar', $proyecto['id'])}}">1. Protocolo</a></li>
-                      <li><a href="{{action('Investigador\ColaboradoresController@index', $proyecto['id'])}}">2. Colaboradores</a></li>
-                      <li><a href="{{action('Investigador\EntregablesController@index', $proyecto['id'])}}">3. Entregables </a></li>
-                      <li><a href="{{action('Investigador\CronogramaController@index', $proyecto['id'])}}">4. Cronograma</a></li>
-                      <li><a href="{{action('Investigador\GastosController@index', $proyecto['id'])}}">5. Presupuesto</a></li>
-                      <li><a href="{{action('Investigador\VinculacionController@mostrar', $proyecto['id'])}}">6. Vinculación</a></li>
-                      <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li>
-                    </ol>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="{{action('Investigador\ProtocoloController@mostar', $proyecto['id'])}}">1. Protocolo</a>
+                      <a class="dropdown-item" href="{{action('Investigador\ColaboradoresController@index', $proyecto['id'])}}">2. Colaboradores</a>
+                      <a class="dropdown-item" href="{{action('Investigador\EntregablesController@index', $proyecto['id'])}}">3. Entregables </a>
+                      <a class="dropdown-item" href="{{action('Investigador\CronogramaController@index', $proyecto['id'])}}">4. Cronograma</a>
+                      <a class="dropdown-item" href="{{action('Investigador\GastosController@index', $proyecto['id'])}}">5. Presupuesto</a>
+                      <a class="dropdown-item" href="{{action('Investigador\VinculacionController@mostrar', $proyecto['id'])}}">6. Vinculación</a>
+                      <a class="dropdown-item" href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a>
+                    </div>
                   </div>
 <!--
                    <div class="btn-group">
@@ -124,18 +124,18 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                 <td></td>
                 <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
                 <td colspan="2" > 
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Documentos<span class="caret"></span>
                     </button>
-                    <ol class="dropdown-menu text-left">
-                      <li><a href="#">CR-01</a></li>
-                      <li><a href="#">CR-02</a></li>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="drowpdown-item" href="#">CR-01</a>
+                      <a class="drowpdown-item" href="#">CR-02</a>
                       @if($proyecto['vinculacion'] != "")
-                      <li><a href="#">Vinculacion</a></li>
+                      <a class="drowpdown-item" href="#">Vinculación</a>
                       @endif
                       <!-- <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li> -->
-                    </ol>
+                    </div>
                   </div>
                                  <!-- Sometido2"{{$proyecto->sometido}}"-->
                   
@@ -149,15 +149,15 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                         <td></td>
                         <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
                         <td colspan="2" > 
-                          <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Documentos<span class="caret"></span>
                             </button>
-                            <ol class="dropdown-menu text-left">
-                              <li><a href="#">CR-01</a></li>
-                              <li><a href="#">CR-02</a></li>
+                            <div class="dropdown-menu text-left">
+                              <a class="dropdown-item" href="#">CR-01</a>
+                              <a class="dropdown-item" href="#">CR-02</a>
                               @if($proyecto['vinculacion'] != "")
-                              <li><a href="#">Vinculacion</a></li>
+                              <a class="dropdown-item" href="#">Vinculacion</a>
                               @endif
                               <!-- <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li> -->
                             </ol>
