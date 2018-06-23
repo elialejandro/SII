@@ -85,10 +85,10 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                 <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
                 <td colspan="1">
                   <div class="dropdown">
-                    <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton_miosin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Protocolo y desarrollo <span class="caret"></span>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_miosin">
                       <a class="dropdown-item" href="{{action('Investigador\ProtocoloController@mostar', $proyecto['id'])}}">1. Protocolo</a>
                       <a class="dropdown-item" href="{{action('Investigador\ColaboradoresController@index', $proyecto['id'])}}">2. Colaboradores</a>
                       <a class="dropdown-item" href="{{action('Investigador\EntregablesController@index', $proyecto['id'])}}">3. Entregables </a>
@@ -125,10 +125,10 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                 <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
                 <td colspan="2" > 
                   <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton_mio_sometido" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Documentos<span class="caret"></span>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu text-left">
                       <a class="drowpdown-item" href="#">CR-01</a>
                       <a class="drowpdown-item" href="#">CR-02</a>
                       @if($proyecto['vinculacion'] != "")
@@ -150,9 +150,9 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                         <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
                         <td colspan="2" > 
                           <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Documentos<span class="caret"></span>
-                            </button>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton_deotro_sometido" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Documentos<span class="caret"></span>
+                    </button>
                             <div class="dropdown-menu text-left">
                               <a class="dropdown-item" href="#">CR-01</a>
                               <a class="dropdown-item" href="#">CR-02</a>
