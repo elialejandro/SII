@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-              <ol class="breadcrumb" style="background-color:transparent">
+              <ol class="breadcrumb" style="background-color:transparent; padding: 0; margin: 0;">
                 <li class="breadcrumb-item"><a href="{{url('/') }}">S.I.I.</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">INICIO</a></li>
                 @yield('breadcrumb')
