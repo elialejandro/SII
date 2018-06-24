@@ -161,35 +161,6 @@ class ProyectoController extends Controller
 
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $proyecto = Proyecto::find($id);
-//        $Datos = Datos::find($id);
-        $convocatoria = $proyecto->convocatoria->Nombre;
-        return view('proyecto/edit',compact('proyecto','id','convocatoria'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $proyecto= Proyecto::find($id);
-        $proyecto->titulo_proyecto=$request->get('titulo');
-        $proyecto->save();
-        return redirect('home')->with('success', 'Information ha sido actualizada');;
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
