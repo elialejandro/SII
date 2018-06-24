@@ -1,15 +1,16 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-      <h2>Información básica del proyecto</h2><br/>
-      <form method="post" action="{{url('proyecto')}}" enctype="multipart/form-data">
+        <div id="sucedio">
+        </div>
+      <form method="post" action="{{url('proyecto')}}" enctype="multipart/form-data" id="frmproyecto">
         @csrf
         <div class="row">
           <div class="form-group col-md-12">
             <label for="nombre_ies">Convocatoria:</label>
               <select name="convocatoria_id">
                @foreach($convocatorias as $convocatoria)
-                 <option value="{{$convocatoria->id}}"> {{ $convocatoria->Nombre }} </option>
+                 <option value="{{$convocatoria->id}}"> {{ $convocatoria->Nombre }} (del {{ $convocatoria->Fecha_inicio }} al {{ $convocatoria->Fecha_fin }})</option>
                @endforeach
               </select>
           </div>
@@ -17,7 +18,7 @@
         <div class="row">
           <div class="form-group col-md-12">
             <label for="titulo">Titulo:</label>
-            <input type="text" class="form-control" name="titulo">
+            <input type="text" class="form-control" name="titulo" required>
           </div>
         </div>
         <div class="row">
@@ -71,11 +72,11 @@
         <div class="row">
           <div class="form-group col-md-6">
             <label for="fecha_inicio">Fecha de inicio:</label>
-            <input type="date" class="form-control" name="fecha_inicio">
+            <input type="date" class="form-control" name="fecha_inicio" required>
           </div>
           <div class="form-group col-md-6">
             <label for="fecha_fin">Fecha de fin:</label>
-            <input type="date" class="form-control" name="fecha_fin">
+            <input type="date" class="form-control" name="fecha_fin" required>
           </div>
         </div>
         <div class="row">
@@ -90,9 +91,40 @@
         </div>
           <div class="col-md-12"></div>
           <div class="form-group col-md-12" style="margin-top:60px">
-            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-success" id="btnadd">Guardar</button>
           </div>
         </div>
       </form>
     </div>
 @endsection
+
+@section('sctipts')
+<script language="javascript">
+  $(document).ready(function(){
+    $("#btnadd").click(agregar);    
+/*
+    $("#entregables-list tbody").on("click", ".btndel" , eliminar);
+    $('#descripcion').on('input', marcar);
+*/
+  });       
+</script>
+<script src="{{asset('js/proyectos.js')}}"></script>
+@endsection
+
+@section('breadcrumb')
+  <li class="breadcrumb-item active" aria-current="page">AGREGAR UN PROYECTO</li>
+@endsection
+
+@section('styles')
+<style>
+input:invalid{
+  border-color:red;
+  border-width: 10px;
+}
+input:valid{
+ border-color:blue; 
+}
+</style>
+@endsection
+
+

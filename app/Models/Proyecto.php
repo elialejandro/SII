@@ -3,7 +3,7 @@
 ////Información básica del proyecto
 id, titulo, nombre_ies, nombre_pe, area, 
 actreditado_habilitado, pnpc, linea, 
-fecha_inicio, fecha_fin, duracion, convocatoria_id, responsable, 
+fecha_inicio, fecha_fin, financiado, duracion, convocatoria_id, responsable, 
 tipo_investigacion, sometido, dictamen, 
 */
 namespace App\Models;

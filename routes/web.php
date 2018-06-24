@@ -15,14 +15,29 @@
 Route::pattern('comvocatorium', '[0-9]+');
 Route::resource('convocatoria','Coordinador\ConvocatoriaController');
 
-Route::pattern('proyecto', '[0-9]+');
-Route::resource('proyecto','Investigador\ProyectoController');
+Route::pattern('colaboradore', '[0-9]+');
+Route::pattern('idpro', '[0-9]+');
+/*
+|      * | GET       | proyecto                          | proyecto.index       | App\Http\Controllers\ProyectoController@index                          | web          |
+|      * | POST      | proyecto                          | proyecto.store       | App\Http\Controllers\ProyectoController@store                          | web          |
+|      * | GET|      | proyecto/create                   | proyecto.create      | App\Http\Controllers\ProyectoController@create                         | web          |
+|      * | DELETE    | proyecto/{proyecto}               | proyecto.destroy     | App\Http\Controllers\ProyectoController@destroy                        | web          |
+|        | PUT|PATCH | proyecto/{proyecto}               | proyecto.update      | App\Http\Controllers\ProyectoController@update                         | web          |
+|        | GET|HEAD  | proyecto/{proyecto}               | proyecto.show        | App\Http\Controllers\ProyectoController@show                           | web          |
+|        | GET|      | proyecto/{proyecto}/edit          | proyecto.edit        | App\Http\Controllers\ProyectoController@edit                           | web          |
+*/
+
+
+Route::get('proyecto', 'Investigador\ProyectoController@index')->name('lstproyectos');
+Route::post('proyecto', 'Investigador\ProyectoController@store')->name('addproyecto');
+Route::get('proyecto/create', 'Investigador\ProyectoController@create')->name('crtproyecto');
+Route::delete('proyecto/{idpro}', 'Investigador\ProyectoController@destroy')->name('delproyecto');
+//Route::resource('proyecto','Investigador\ProyectoController');
 Route::get('proyecto/especial', 'Investigador\ProyectoController@especial')->name('pryecto.especial');
 Route::post('proyectoespecial', 'Investigador\ProyectoController@sespecial')->name('pryectoespecial');
 
 
-Route::pattern('colaboradore', '[0-9]+');
-Route::pattern('idpro', '[0-9]+');
+
 
 //Route::resource('colaboradores','Investigador\ColaboradoresController');
 //Route::delete('colaboradores/quitar/{idpro}/{colab}','Investigador\ColaboradoresController@destroy');

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\Models\Proyecto;
+use App\Models\Colaboradores;
 use App\Models\Convocatoria;
 use App\Models\User;
 
@@ -49,7 +50,6 @@ class ProyectoController extends Controller
                     ->get();
         $tipos = DB::table('catalogo_tipo_investigacion')->get();
         return view('proyecto/create',compact('convocatorias','ies','pes','areas','lineas','tipos'));
-
     }
 
     /**
@@ -69,11 +69,45 @@ class ProyectoController extends Controller
         $proyecto->convocatoria_id = $request->get('id_conv');
         $proyecto->save();        
 */
+        $puede = true;
 
         $parametros=$request->all();
         $parametros['responsable']=$logeado->id;
-        Proyecto::create($parametros);
-        return redirect('home')->with('success', 'Information ha sido agregada');
+
+        //////VALIDACIONES
+        $cuantos = Proyecto::where( 'convocatoria_id' , $request->get('convocatoria_id') )
+                        ->where('financiado',  $request->get('financiado') )
+                        ->count();
+        if($cuantos > 0) {
+            $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Ya hay un proyecto bajo este mismo tipo de financiamiento en esta convocatoria con esta misma linea.');
+            $puede = false;
+        }
+
+        $tiene= Proyecto::where( 'convocatoria_id' , $request->get('convocatoria_id') )
+                        ->where('responsable',  $logeado->id )
+                        ->count();
+
+        if($tiene > 0) {
+            $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Este investigador ya figura como director de otro proyecto.');
+            $puede = false;
+        }
+
+        $colabora = DB::table('proyecto')
+                      ->where('convocatoria_id',$request->input('convocatoria_id'))
+                      ->join('colaboradores', 'proyecto.id', '=', 'colaboradores.proyecto_id')
+                      ->select('titulo')
+                      ->count();
+
+        if($colabora >= 2) {
+            $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Este investigador ya figura como colaborador en el limite de proyectos en esta convocatoria.');
+            $puede = false;
+        }
+
+        if($puede) {
+            Proyecto::create($parametros);
+            $Retornar = array('status' => 'alert alert-success', 'mensaje' => 'Information ha sido agregada');
+        }
+        return response()->json($Retornar);
     }
 
     /**

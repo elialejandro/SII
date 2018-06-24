@@ -1,36 +1,13 @@
-someter los proyectos, y que los sometidos solo se puedan ver...
+//someter los proyectos, y que los sometidos solo se puedan ver...
 //guardar en session el page del index
 //sesion time out
+que puedas ver la informacion escencial del proyecto
+
 
 //return response()->download(public_path('myimage.jpg')); 
 
 //
 INSERT INTO `colaboradores` (`id`, `users_id`, `proyecto_id`, `participacion`) VALUES (74, 1, 4, NULL);
 
-                @foreach($proyecto->colaboradores as $colaborador)
-                <?php foreach ($proyecto->colaboradores as $colaborador): ?>
-                    @if($colaborador->users_id==Auth::user()->id)
-                      <tr>
-                        <td></td>
-                        <td>{{$proyecto['titulo']}} <br> Director: {{$proyecto->director->name}}</td>
-                        <td colspan="2" > 
-                          <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Documentos<span class="caret"></span>
-                            </button>
-                            <ol class="dropdown-menu text-left">
-                              <li><a href="#">CR-01</a></li>
-                              <li><a href="#">CR-02</a></li>
-                              <li><a href="#">Vinculacion</a></li>
-                              <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li>
-                            </ol>
-                          </div>
-                          @if($colaborador->participacion==0)
-                            <button class="btn btn-success btnaceptar" value="{{$colaborador->id}}">Aceptar</button>
-                            <button class="btn btn-danger btnrechaza" value="{{$colaborador->id}}">Rechazar</button>
-                          @endif
-                        </td>
-                      </tr>
-                    @endif
-                <?php endforeach ?>
-                @endforeach                    
+var formData = new FormData(document.getElementById("formuploadajax"));
+formData.append("dato", "valor");
