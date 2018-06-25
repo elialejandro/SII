@@ -98,9 +98,8 @@
               </select>
           </div>
         </div>
-          <div class="form-group col-md-12" style="margin-top:60px">
-            <button type="submit" class="btn btn-success">Guardar</button>
-          </div>
+        <div class="row">
+          <button type="button" class="btn btn-success" id="btnadd">Guardar</button>
         </div>
       </form>
     </div>

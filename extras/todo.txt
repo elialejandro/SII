@@ -11,3 +11,26 @@ INSERT INTO `colaboradores` (`id`, `users_id`, `proyecto_id`, `participacion`) V
 
 var formData = new FormData(document.getElementById("formuploadajax"));
 formData.append("dato", "valor");
+
+
+INSERT INTO `catalogo_restricciones_desgloce` (`catalogo_restricciones_id`,`descripcion`, `valor`) VALUES
+(2, 'Longitud del titulo', 120),
+(2, 'Longitud del resumen', -1),
+(2, 'Proyectos por linea de investigacion', 2),
+(2, 'Proyectos por investigador como colaborador', 2);
+
+//al borrar primero en este orden
+
+0 .- vaciar los pdf's
+
+1 colaboradores
+//gastos
+//cronogrmama
+2 entregables
+====> proyecto
+
+
+1 Proyectos financiados por línea de investigación = 1
+2 Proyectos por línea de investigación = 2
+3 Participaciones como director = 1
+4 Máximo de participaciones = 2

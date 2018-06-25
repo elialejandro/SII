@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div id="sucedio">
-        </div>
+      <div id="sucedio">
+      </div>
       <form method="post" action="{{url('proyecto')}}" enctype="multipart/form-data" id="frmproyecto">
         @csrf
         <div class="row">
@@ -89,10 +89,8 @@
               </select>
           </div>
         </div>
-          <div class="col-md-12"></div>
-          <div class="form-group col-md-12" style="margin-top:60px">
-            <button type="button" class="btn btn-success" id="btnadd">Guardar</button>
-          </div>
+        <div class="row">
+          <button type="button" class="btn btn-success" id="btnadd">Guardar</button>
         </div>
       </form>
     </div>

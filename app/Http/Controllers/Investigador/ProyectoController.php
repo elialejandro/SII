@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Proyecto;
 use App\Models\Colaboradores;
 use App\Models\Convocatoria;
+use App\Models\RestriccionesR;
 use App\Models\User;
 
 class ProyectoController extends Controller
@@ -70,42 +71,62 @@ class ProyectoController extends Controller
         $proyecto->save();        
 */
         $puede = true;
-
         $parametros=$request->all();
         $parametros['responsable']=$logeado->id;
 
-        //////VALIDACIONES
+        //////RESTRICCIONES
+// 1 Proyectos financiados por línea de investigación
         $cuantos = Proyecto::where( 'convocatoria_id' , $request->get('convocatoria_id') )
-                        ->where('financiado',  $request->get('financiado') )
+                        ->where('financiado', 1)
                         ->count();
-        if($cuantos > 0) {
-            $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Ya hay un proyecto bajo este mismo tipo de financiamiento en esta convocatoria con esta misma linea.');
+
+        $Restricciones = RestriccionesR::find(1);                
+        if($cuantos >=  $Restricciones->valor  &&  $request->get('financiado') == 1 ) {
+            $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Ya hay un proyecto financiado en esta convocatoria con esta misma linea.');
             $puede = false;
         }
 
+//2 Proyectos por línea de investigación = 2
+        $cuantos = Proyecto::where( 'convocatoria_id' , $request->get('convocatoria_id') )
+                        ->count();
+
+        $Restricciones = RestriccionesR::find(2);    
+        if($cuantos >= $Restricciones->valor) {
+            $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Ya se registró en esta convocatoria con esta misma linea el numero màximo de proyectos.');
+            $puede = false;
+        }
+
+
+//3 Participaciones como director = 1
         $tiene= Proyecto::where( 'convocatoria_id' , $request->get('convocatoria_id') )
                         ->where('responsable',  $logeado->id )
                         ->count();
 
-        if($tiene > 0) {
+        $Restricciones = RestriccionesR::find(3);    
+        if($tiene >= $Restricciones->valor) {
             $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Este investigador ya figura como director de otro proyecto.');
             $puede = false;
         }
 
+
+
+//*4 Máximo de participaciones = 2
         $colabora = DB::table('proyecto')
                       ->where('convocatoria_id',$request->input('convocatoria_id'))
                       ->join('colaboradores', 'proyecto.id', '=', 'colaboradores.proyecto_id')
                       ->select('titulo')
                       ->count();
 
-        if($colabora >= 2) {
-            $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Este investigador ya figura como colaborador en el limite de proyectos en esta convocatoria.');
+        $Restricciones = RestriccionesR::find(4);
+        $parti=   $Restricciones->valor;
+        if( ($colabora + $tiene) >= $parti ) {
+            $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Se excede el numero de particiapcinoes.');
             $puede = false;
         }
 
         if($puede) {
             Proyecto::create($parametros);
-            $Retornar = array('status' => 'alert alert-success', 'mensaje' => 'Information ha sido agregada');
+            $Retornar = array('status' => 'alert alert-success', 'mensaje' => 'El proyecto ha sido registrado.');
         }
         return response()->json($Retornar);
     }
