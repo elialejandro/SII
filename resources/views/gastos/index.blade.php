@@ -105,18 +105,13 @@
     <script src="{{asset('js/gastos.js')}}"></script>
 <script language="javascript">
   $(document).ready(function(){
-    
     $(".btnadd2").click(function (){
 //      alert("hola");
         $('#cronograma_id').val( this.id  );
-
         $('#gastosModal').modal();
-
-
     });    
-
     $("#btnadd").click(agregar);    
-    $(".gastos-list tbody").on("click", ".btndel" , eliminar);
+    $("#actividades-list .gastos-list tbody").on("click", ".btndel" , eliminar);
     
   });       
 </script>
@@ -128,7 +123,6 @@
 
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.min.css')}}"/>
 <style>
 input:invalid{
   border-color:red;

@@ -23,7 +23,7 @@ function agregar(){
             $('#frmactiviades').trigger("reset");
             console.log("regreso en agregar:",data);
             // linea: partida, descripcion, monto, eliminar
-             var linea = '<tr id="gasto' + data.id + '"><td>' + data.partida + '</td><td>' + data.descripcion + '</td><td>' + data.monto + '</td>';
+             var linea = '<tr id="gasto_' + data.id + '"><td>' + data.partida + '</td><td>' + data.descripcion + '</td><td>' + data.monto + '</td>';
              linea += '<td><button class="btn btn-danger btndel" value="' + data.id  + '">Eliminar</button></td></tr>';
              $('#gastos-list_actividad_' + data.cronograma_id).append(linea);
 //            $('#gastosModal').trigger("reset");
