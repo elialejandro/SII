@@ -17,71 +17,21 @@
     <div class="row">
       <div class="col-md-2">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link active"  data-toggle="pill" href="#tresumen"         role="tab" aria-controls="resumen" aria-selected="true">Resumen</a>
-          <a class="nav-link"         data-toggle="pill" href="#tintroduccion"    role="tab" aria-controls="introduccion" aria-selected="true">Introduccion</a>
-          <a class="nav-link"         data-toggle="pill" href="#tantecedentes"    role="tab" aria-controls="antecedentes" aria-selected="false">Antecedentes</a>
-          <a class="nav-link"         data-toggle="pill" href="#thipotesis"       role="tab" aria-controls="hipotesis" aria-selected="false">Hipotesis</a>       
-          <a class="nav-link"         data-toggle="pill" href="#tmarco"           role="tab" aria-controls="marco" aria-selected="false">Marco teórico</a>
-          <a class="nav-link"         data-toggle="pill" href="#tmetas"           role="tab" aria-controls="metas" aria-selected="false">Metas</a>
-          <a class="nav-link"         data-toggle="pill" href="#tobjetivos"       role="tab" aria-controls="obetivos" aria-selected="false">Objetivos</a>
-          <a class="nav-link"         data-toggle="pill" href="#timpacto"         role="tab" aria-controls="impacto" aria-selected="false">Impacto o beneficio</a>
-          <a class="nav-link"         data-toggle="pill" href="#tmetodologia"     role="tab" aria-controls="metodologia" aria-selected="false">Metodologia</a>        
-          <a class="nav-link"         data-toggle="pill" href="#tvinculacion"     role="tab" aria-controls="metodologia" aria-selected="false">Vinculacion</a>
-          <a class="nav-link"         data-toggle="pill" href="#treferencias"     role="tab" aria-controls="referencia" aria-selected="false">Referencias</a>
+          @foreach($partes as $parte)
+            <a class="nav-link @if($loop->index==0)show activie @endif "  data-toggle="pill" href="#t{{$parte->elemento}}" role="tab" aria-controls="{{$parte->elemento}}" aria-selected="true">{{$parte->descripcion}}</a>
+          @endforeach
         </div>
-      </div> <!-- .col-md-8 -->
+      </div> <!-- .col-md-2 -->
       <div class="col-md-10">
         <div class="tab-content" id="v-pills-tabContent">
-          <div class="tab-pane fade show active" id="tresumen" role="tabpanel" aria-labelledby="v-pills-home-tab">
-            <textarea class="form-control" name="resumen" id="resumen" rows="8" cols="30" maxlength="25">{{$protocolo->resumen}}</textarea>
-            <div class="alert alert-info col-4" id="lresumen" role="alert"></div>
-          </div>
-          <div class="tab-pane fade" id="tintroduccion" role="tabpanel" aria-labelledby="v-pills-home-tab">
-            <textarea class="form-control" name="introduccion" id="introduccion" rows="8" cols="30" maxlength="25">{{$protocolo->introduccion}}</textarea>
-            <div class="alert alert-info col-4" id="lintroduccion" role="alert"></div>
-          </div>
-          <div class="tab-pane fade" id="tantecedentes" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <textarea class="form-control" name="antecedentes" id="antecedentes" rows="8" cols="30" maxlength="25">{{$protocolo->antecedentes}}</textarea>
-            <div class="alert alert-info col-4" id="lantecedentes" role="alert"></div>  
-          </div>
-          <div class="tab-pane fade" id="thipotesis" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-           <textarea class="form-control" name="hipotesis" id="hipotesis" rows="8" cols="30" maxlength="25">{{$protocolo->hipotesis}}</textarea>
-           <div class="alert alert-info col-4" id="lhipotesis" role="alert"></div>
-          </div>
-          <div class="tab-pane fade" id="tmarco" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <textarea class="form-control" name="marco_teorico" id="marco_teorico" rows="8" cols="30" maxlength="25">{{$protocolo->marco_teorico}}</textarea>
-            <div class="alert alert-info col-4" id="lmarco" role="alert"></div>  
-          </div>
-          <div class="tab-pane fade" id="tmetas" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <textarea class="form-control" name="metas" id="metas" rows="8" cols="30" maxlength="25">{{$protocolo->metas}}</textarea>
-            <div class="alert alert-info col-4" id="lmetas" role="alert"></div>  
-          </div>
-          <div class="tab-pane fade" id="tobjetivos" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <label for="objetivo_general">General:</label>
-            <textarea class="form-control" name="objetivo_general" id="objetivo_general" rows="2" cols="30" maxlength="25">{{$protocolo->objetivo_general}}</textarea>        
-            <div class="alert alert-info col-4" id="lgeneral" role="alert"></div>
-            <label for="objetivos_especificos">Especificos:</label>
-            <textarea class="form-control" name="objetivos_especificos" id="objetivos_especificos" rows="8" cols="30" maxlength="25">{{$protocolo->objetivos_especificos}}</textarea>
-            <div class="alert alert-info col-4" id="lespecificos" role="alert"></div>
-          </div>  
-          <div class="tab-pane fade" id="timpacto" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <textarea class="form-control" name="impacto_beneficio" id="impacto_beneficio" rows="8" cols="30" maxlength="25">{{$protocolo->impacto_beneficio}}</textarea>
-            <div class="alert alert-info col-4" id="limpacto" role="alert"></div>  
-          </div>
-          <div class="tab-pane fade" id="tmetodologia" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <textarea class="form-control" name="metodologia" id="metodologia" rows="8" cols="30" maxlength="25">{{$protocolo->metodologia}}</textarea>
-            <div class="alert alert-info col-4" id="lmetodologia" role="alert"></div>  
-          </div>
-          <div class="tab-pane fade" id="tvinculacion" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <textarea class="form-control" name="vinculacion" id="vinculacion" rows="8" cols="30" maxlength="25">{{$protocolo->vinculacion}}</textarea>
-            <div class="alert alert-info col-4" id="lvinculacion" role="alert"></div>  
-          </div>
-          <div class="tab-pane fade" id="treferencias" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <textarea class="form-control" name="referencias" id="referencias" rows="8" cols="30" maxlength="25">{{$protocolo->referencias}}</textarea>
-            <div class="alert alert-info col-4" id="lreferencias" role="alert"></div>  
-          </div>
+          @foreach($partes as $parte)
+            <div class="tab-pane fade @if($loop->index==0)show active @endif" id="t{{$parte->elemento}}" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              <textarea class="form-control" name="{{$parte->elemento}}" id="{{$parte->elemento}}" rows="8" cols="30" maxlength="{{$parte->valor}}">{{ $protocolo["$parte->elemento"] }}</textarea>
+              <div class="alert alert-info col-4" id="l{{$parte->elemento}}" role="alert"></div>
+            </div>
+          @endforeach
         </div>
-      </div> <!-- .col-md-8 -->
+      </div> <!-- .col-md-10 -->
     </div>
     <div class="row">
       <button type="submit" class="btn btn-success" value="Submit">Guardar</button>
@@ -122,6 +72,7 @@
                 }
             }   
         });
+      $("textarea").keyup();
 //    var $divs = $('div');
 //    $("#btnadd").click(agregar);    
 //    $("#colaboradores-list tbody").on("click", ".btndel" , desinvitar);

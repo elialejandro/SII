@@ -128,14 +128,15 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton_mio_sometido" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Documentos<span class="caret"></span>
                     </button>
-                    <div class="dropdown-menu text-left">
-                      <a class="drowpdown-item" href="{{ action( 'DocumentosController@documento01' , $proyecto->id ) }}">CR-01</a>
-                      <a class="drowpdown-item" href="#">CR-02</a>
+                      <ol class="dropdown-menu text-left">
+                      <li><a class="drowpdown-item" href="{{action('DocumentosController@cr01', $proyecto['id'])}}">CR-01</a></li>
+                      <li><a class="drowpdown-item" href="#">CR-02</a></li>
                       @if($proyecto['vinculacion'] != "")
-                      <a class="drowpdown-item" href="#">Vinculación</a>
+                      <li><a href="{{action('DocumentosController@vinculacion', $proyecto['id'])}}">Vinculacion</a></li>
                       @endif
                       <!-- <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li> -->
-                    </div>
+                    </ol>
+
                   </div>
                                  <!-- Sometido2"{{$proyecto->sometido}}"-->
                   
@@ -154,13 +155,13 @@ id, actividad, fecha_inicio, fecha_fin, monto, proyecto_id, entregables_id
                       Documentos<span class="caret"></span>
                     </button>
                     <ol class="dropdown-menu text-left">
-                      <li><a class="drowpdown-item" href="{{action('DocumentosController@documento01', $proyecto['id'])}}">CR-01</a></li>
-                      <li><a href="#">CR-02</a></li>
+                      <li><a class="drowpdown-item" href="{{action('DocumentosController@cr01', $proyecto['id'])}}">CR-01</a></li>
+                      <li><a class="drowpdown-item" href="#">CR-02</a></li>
                       @if($proyecto['vinculacion'] != "")
-                      <li><a href="#">Vinculacion</a></li>
+                      <li><a href="{{action('DocumentosController@vinculacion', $proyecto['id'])}}">Vinculacion</a></li>
                       @endif
                       <!-- <li><a href="{{action('Investigador\SometerController@someter', $proyecto['id'])}}">7. Someter</a></li> -->
-                    </ol>                          
+                    </ol>
                           @if($colaborador->participacion==0 && $proyecto->sometido == "")
                             <button class="btn btn-success btnaceptar" value="{{$colaborador->id}}">Aceptar</button>
                             <button class="btn btn-danger btnrechaza" value="{{$colaborador->id}}">Rechazar</button>
