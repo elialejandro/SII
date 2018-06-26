@@ -85,3 +85,18 @@ Route::get('registrados', 'Coordinador\IntegracionController@registrados');
 Route::pattern('token', '[0-9]+');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+//////////
+/*
+Route::resource('crudareas','Coordinador\CrudAreasController');
+Route::resource('crudusers','Coordinador\CrudUsersController');
+Route::resource('crudentregables','Coordinador\CrudEntregablesController');
+Route::resource('crudgastos','Coordinador\CrudGastosController');
+Route::resource('crudlineas','Coordinador\CrudLineasController');
+Route::resource('crudinvestigacion','CrudInvestigacionsController');
+*/
+Route::get('pdfcr01/{idpro}','DocumentosController@cr01');
+Route::get('pdfcr02/{idpro}','DocumentosController@cr02');
+Route::get('pdfvinc/{idpro}','DocumentosController@vinculacion');
+
+///////////

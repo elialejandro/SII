@@ -107,9 +107,7 @@ class ProyectoController extends Controller
             $Retornar = array('status' => 'alert alert-danger', 'mensaje' => 'Este investigador ya figura como director de otro proyecto.');
             $puede = false;
         }
-
-
-
+        
 //*4 Máximo de participaciones = 2
         $colabora = DB::table('proyecto')
                       ->where('convocatoria_id',$request->input('convocatoria_id'))

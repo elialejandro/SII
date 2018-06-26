@@ -17,8 +17,8 @@ class Protocolo extends Model
 
    protected $fillable = [
 	'resumen', 'introduccion', 'antecedentes', 'hipotesis', 'marco_teorico', 
-	'metas', 'objetivo_general', 'objetivos_especificos', 'impacto_beneficio', 
-	'metodologia', 'vinculacion', 'referencias', 'lugar', 'infraestrucutura'];
+	'objetivo_general', 'objetivos_especificos', 'impacto_beneficio', 
+	'metodologia', 'referencias', 'lugar', 'infraestrucutura'];
 
 	public function convocatoria(){
 		return 
