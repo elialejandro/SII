@@ -44,9 +44,9 @@ function agregar(){
              var linea = '<tr id="actividad_' + data.id + '"><td>' + data.actividad + '</td><td>' + data.fecha_inicio + ' a '   + data.fecha_inicio + '</td>';
 
             if(data.entregables_id ="undefinded")
-                 linea += '<td>Sin entregable<td>';
+                 linea += '<td>Sin entregable</td>';
             else
-                 linea += '<td>' + data.entregables_id +'<td>';
+                 linea += '<td>' + data.entregables_id +'</td>';
 
              linea += '<td><button class="btn btn-danger btndel" value="' + data.id + '">Eliminar</button></td></tr>';
              $('#actividades-list').append(linea);
